@@ -1,16 +1,280 @@
-# React + Vite
+DAY-11 — React Router (Multi Page Applications)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Source:
+React Router Docs
+W3Schools
 
-Currently, two official plugins are available:
+Topics:
+- Routing
+- BrowserRouter
+- Routes
+- Route
+- Link
+- 404 Page
+- Multi-page app structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+==================================================
 
-## React Compiler
+1) What is Routing?
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Routing means navigating between pages/components
+without refreshing the browser.
 
-## Expanding the ESLint configuration
+Example pages:
+- Home
+- About
+- Contact
+- Dashboard
+- Profile
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Without routing:
+Everything stays on one page ❌
+
+With routing:
+Multiple pages navigation works ✅
+
+--------------------------------------------------
+
+2) Install React Router
+
+Command:
+
+npm install react-router-dom
+
+This installs React Router library.
+
+--------------------------------------------------
+
+3) BrowserRouter
+
+Used in:
+
+main.jsx
+
+Example:
+
+<BrowserRouter>
+   <App />
+</BrowserRouter>
+
+Purpose:
+Enables routing for the entire app.
+
+Think of it as:
+Main routing engine
+
+--------------------------------------------------
+
+4) Routes
+
+Used inside App.jsx
+
+Example:
+
+<Routes>
+   ...
+</Routes>
+
+Purpose:
+Contains all route definitions.
+
+--------------------------------------------------
+
+5) Route
+
+Used to map URL → component
+
+Example:
+
+<Route path="/" element={<Home />} />
+
+Explanation:
+
+"/"
+means homepage URL
+
+<Home />
+component will render
+
+--------------------------------------------------
+
+Example:
+
+<Route path="/about" element={<About />} />
+
+When user visits:
+
+/about
+
+About component loads
+
+--------------------------------------------------
+
+6) Link
+
+Used for navigation
+
+Example:
+
+<Link to="/about">About</Link>
+
+Why not use <a> tag?
+
+<a> refreshes browser ❌
+
+<Link> avoids refresh ✅
+
+Better performance
+
+--------------------------------------------------
+
+7) Folder Structure
+
+src/
+
+main.jsx
+App.jsx
+
+components/
+   Navbar.jsx
+
+pages/
+   Home.jsx
+   About.jsx
+   Contact.jsx
+   NotFound.jsx
+
+This is common industry structure.
+
+--------------------------------------------------
+
+8) Navbar Example
+
+Navbar contains links:
+
+Home
+About
+Contact
+
+Allows navigation between pages.
+
+--------------------------------------------------
+
+9) 404 Page
+
+Used when user visits invalid URL
+
+Example:
+
+<Route path="*" element={<NotFound />} />
+
+Example invalid route:
+
+/xyz
+
+Shows:
+Page Not Found
+
+--------------------------------------------------
+
+10) Flow of Routing
+
+User clicks link
+→ URL changes
+→ Matching route found
+→ Component renders
+
+--------------------------------------------------
+
+11) Real-world Usage
+
+Used in apps like:
+
+Netflix
+Amazon
+LinkedIn
+Dashboard systems
+Admin panels
+E-commerce websites
+
+--------------------------------------------------
+
+12) Common Mistakes
+
+- Forgetting BrowserRouter
+- Using <a> instead of <Link>
+- Wrong route path
+- Missing 404 route
+- Poor folder structure
+
+--------------------------------------------------
+
+13) Interview Questions
+
+What is React Router?
+Library for routing in React apps
+
+-----------------------------------
+
+What does BrowserRouter do?
+Enables routing in application
+
+-----------------------------------
+
+What is Routes?
+Container for all routes
+
+-----------------------------------
+
+What is Route?
+Maps URL to component
+
+-----------------------------------
+
+Why use Link instead of anchor tag?
+Prevents page refresh
+
+-----------------------------------
+
+How to create 404 page?
+Using path="*"
+
+--------------------------------------------------
+
+Mini Project
+
+Build:
+
+Multi Page Portfolio App
+
+Pages:
+- Home
+- About
+- Contact
+- 404 Page
+
+Add:
+- Navbar
+- Routing
+
+--------------------------------------------------
+
+Key Takeaways
+
+Routing makes apps multi-page
+
+React Router is essential
+
+Link improves performance
+
+404 pages improve user experience
+
+Used in almost every real React application
+
+--------------------------------------------------
+
+Next (Day-12)
+
+Context API
+Global State Management
+Avoid prop drilling
